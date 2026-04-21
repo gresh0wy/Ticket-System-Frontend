@@ -54,10 +54,44 @@ Kombinacja `isAdmin` grupuje oba i stosowana jest na trasach administracyjnych.
 
 
 
-
 # DevBlog #2 — FIX (Update 07.04.2026)
 
-- Redukcja niepotrzebnego kodu w auth-middleware oraz doprecyzowanie kodów będów.
-- Token JWT przechowuje dodadkowo dwa parametry: imie oraz nazwisko.
-- Rozpoczącie prac nad stworzeniem dokumentacji do API.
-- Przygowotanie wstępnego środowiska dla frontendu (React + TS).
+- Redukcja niepotrzebnego kodu w middleware autoryzacji oraz doprecyzowanie kodów błędów.
+- Token JWT przechowuje dodatkowo dwa parametry: imię oraz nazwisko.
+- Rozpoczęcie prac nad tworzeniem dokumentacji API.
+- Przygotowanie wstępnego środowiska dla frontendu (React + TypeScript).
+
+
+
+# DevBlog #3 — Update frontend (Update 20.04.2026)
+
+## Autoryzacja
+- Dodanie rejestracji użytkownika z podpiętym autorskim API
+- Dodanie logowania użytkownika z podpiętym autorskim API
+- Obsługa httpOnly cookie do przechowywania tokenu JWT
+- Konfiguracja CORS między frontem (localhost:5173) a API (localhost:3000)
+
+## Nawigacja v0.1
+- Dodanie komponentu Navbar
+- Komponent `GuestLinks` – wyświetla przyciski logowania i rejestracji gdy użytkownik nie jest zalogowany
+- Komponent `UserInfo` – wyświetla imię i nazwisko zalogowanego użytkownika oraz przycisk wylogowania
+- Automatyczne odświeżanie stanu nawigacji przy zmianie trasy (useLocation)
+- Wylogowanie przekierowuje na stronę logowania
+- Wstępny interfejs dla nawigacji, logowania i rejestracji
+
+## Routing
+- Konfiguracja tras dla użytkownika i admina
+- Obsługa strony 404 (PageNotFound)
+- Ujednolicone nazewnictwo tras zgodnie z REST (/tickets, /users/me, /admin/users itd.)
+
+## Formularze i komponenty
+- Komponent `FormInput` – wielokrotnego użytku, obsługuje wszystkie inputy przez propsy
+- Formularz tworzenia zgłoszenia z dynamicznym mapowaniem pól przez `.map()`
+- Komponent `SuccessModal` – modal z potwierdzeniem wysłania zgłoszenia oraz ID ticketa
+- Reset formularza po zamknięciu modalu
+- Obsługa błędów przy wysyłaniu zgłoszenia
+
+## Lista zgłoszeń 
+- Dodanie strony z listą wszytskich zgłoszeń po adresem `/admin/tickets` tylko dla użytkowników z pzoiomem administratora
+- Dodanie szczegóły zgłoszenia z możliwością usunięcia zgłoszenia
+- Stworzenie przekierowanie na strone z komunikatem o braku dostępu do danych zasobów
