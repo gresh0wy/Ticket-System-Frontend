@@ -95,3 +95,10 @@ Kombinacja `isAdmin` grupuje oba i stosowana jest na trasach administracyjnych.
 - Dodanie strony z listą wszytskich zgłoszeń po adresem `/admin/tickets` tylko dla użytkowników z pzoiomem administratora
 - Dodanie szczegóły zgłoszenia z możliwością usunięcia zgłoszenia
 - Stworzenie przekierowanie na strone z komunikatem o braku dostępu do danych zasobów
+
+## Status zgłoszenia
+- Dodanie strony przeglądania ststustu włąsnego zgłoszenia
+
+## Edycja zgłoszeń
+- Dodanie możliwości edycji zgłoszenia
+

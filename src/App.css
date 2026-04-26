@@ -504,7 +504,7 @@ button.nav-link {
 
 
 
-/* ====================== ERROR PAGE ====================== */
+/* ====================== ERROR PAGE 403 ====================== */
 
 .error403-page {
   min-height: 100vh;
@@ -562,6 +562,66 @@ button.nav-link {
   background-color: #2a2a2a;
   border-color: #555555;
   color: #ffffff;
+}
+
+/* ====================== ERROR PAGE 404 ====================== */
+
+
+.notfound-page {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.notfound-card {
+  background-color: #111111;
+  border: 1px solid #222222;
+  border-radius: 10px;
+  padding: 50px 40px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.notfound-card h1 {
+  font-size: 72px;
+  margin-bottom: 10px;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.notfound-card h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.notfound-card p {
+  color: #888888;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+/* Button */
+.back-button {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  color: #e0e0e0;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #2a2a2a;
+  border-color: #444;
 }
 
 /* ====================== ALL TICKETS ====================== */
@@ -794,4 +854,128 @@ button.nav-link {
 .edit-btn:hover {
   background-color: #2f2f2f;
   color: #fff;
+}
+
+/* ====================== CheckStatusTickets ====================== */
+
+/* Strona */
+.ticket-search-page {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wyszukiwarka */
+.ticket-search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.ticket-search-input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  background-color: #111;
+  color: #eee;
+}
+
+.ticket-search-button {
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2a2a2a;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ticket-search-button:hover {
+  background-color: #3a3a3a;
+}
+
+/* Karta */
+.ticket-view-card {
+  background-color: #111;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 35px;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Grid */
+.ticket-view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Pole */
+.ticket-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-label {
+  font-size: 13px;
+  color: #888;
+}
+
+.ticket-value {
+  font-size: 15px;
+  color: #e0e0e0;
+}
+
+/* Status */
+.ticket-status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+.ticket-status-otwarte {
+  background-color: #2a3a1e;
+  color: #a3d977;
+}
+
+.ticket-status-w-trakcie {
+  background-color: #3a2e1e;
+  color: #f0c070;
+}
+
+.ticket-status-zamkniete {
+  background-color: #3a1e1e;
+  color: #ff7a7a;
+}
+
+/* Opis */
+.ticket-description-block {
+  margin-top: 30px;
+}
+
+.ticket-description {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 6px;
+  color: #ccc;
+}
+
+/* Brak danych */
+.ticket-empty {
+  color: #777;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .ticket-view-grid {
+    grid-template-columns: 1fr;
+  }
 }

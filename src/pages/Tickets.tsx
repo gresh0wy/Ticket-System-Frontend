@@ -18,8 +18,7 @@ function AllTickets() {
             })
 
             if (data.status === 401 || data.status === 403) {
-
-                navigate('/forbidden')
+        navigate('/forbidden')
             } else {
                 const res = await data.json()
                 setTickets(res)

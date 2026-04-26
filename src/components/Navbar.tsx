@@ -64,8 +64,8 @@ export function Navbar() {
             <div className="nav-links">
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/tickets/create" className="nav-link">Nowe zgłoszenie</Link>
+                <Link to="/tickets/status" className="nav-link">Sprawdź status</Link>
                 <Link to="/admin/tickets" className="nav-link">Wszystkie zgłoszenia</Link>
-                <Link to="/about" className="nav-link">O nas</Link>
             </div>
 
             <div className="user-section">

@@ -3,27 +3,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login'
 import Register from './pages/Register'
 import CreateTickets from './pages/CreateTickets'
+import CheckStatusTickets from './pages/CheckStatusTickets'
 import AllTickets from './pages/Tickets'
 import DetailsTickets from './pages/DetailsTickets'
 import Error403 from './pages/Error403'
+import Error404 from './pages/Error404'
 import { Navbar } from './components/Navbar'
 
 
 
 
 
-function About() {
-  return (
-    <h1>hej na o nas</h1>
-  )
-}
 
-
-function PageNotFound() {
-  return (
-    <h1>strona nie istnieje</h1>
-  )
-}
 
 export function App() {
 
@@ -35,13 +26,12 @@ export function App() {
         {/* ogólnodostępne ścieżki */}
         <Route path='/'></Route>
         <Route path='/tickets/create' element={<CreateTickets />}></Route>
-        <Route path='/tickets/:id'></Route>
+        <Route path='/tickets/status' element={<CheckStatusTickets />}></Route>
         <Route path='/users/me'></Route>
         <Route path='/users/me/settings'></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
 
-        <Route path='/about' element={<About />}></Route>
 
         {/* dostępne dla admina */}
         <Route path='/admin/users'></Route>
@@ -53,7 +43,7 @@ export function App() {
 
         {/* handle error  */}
         <Route path='/forbidden' element={<Error403 />}></Route>
-        <Route path='*' element={<PageNotFound />}></Route>
+        <Route path='*' element={<Error404 />}></Route>
 
       </Routes >
 

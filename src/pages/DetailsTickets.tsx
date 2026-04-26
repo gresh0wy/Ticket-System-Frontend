@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import { ConfirmModal } from '../components/ConfirmModal'
+import { EditModal } from '../components/EditModal'
 
 
 function DetailsTickets() {
     const [isOpen, setIsOpen] = useState(false)
+    const [isOpenEditModal, setIsOpenEditModal] = useState(false)
     const [tickets, setTickets] = useState([])
     let navigate = useNavigate()
     let params = useParams()
@@ -19,18 +21,17 @@ function DetailsTickets() {
                     "Content-Type": "application/json",
                 },
             })
-            const res = await dataTickets.json()
-            setTickets(res)
+
             if (dataTickets.status === 401 || dataTickets.status === 403) {
                 navigate('/forbidden')
             } else {
-
-
+                const res = await dataTickets.json()
+                setTickets(res)
             }
 
         }
         getTickets()
-    }, [])
+    }, [EditModal])
 
     async function deleteTickets() {
         const data = await fetch(`http://localhost:3000/api/tickets/${params.id}`, {
@@ -50,6 +51,12 @@ function DetailsTickets() {
     }
     function closeConfirmModal() {
         setIsOpen(false)
+    }
+    function showEditModal() {
+        setIsOpenEditModal(true)
+    }
+    function closeEditModal() {
+        setIsOpenEditModal(false)
     }
 
 
@@ -118,12 +125,12 @@ function DetailsTickets() {
 
                     <div className="detail-item">
                         <span>Utworzone</span>
-                        <p>{tickets.data_utworzenia}</p>
+                        <p>{new Date(tickets.data_utworzenia).toLocaleDateString('local')}</p>
                     </div>
 
                     <div className="detail-item">
                         <span>Modyfikowane</span>
-                        <p>{tickets.data_modyfikacji}</p>
+                        <p>{new Date(tickets.data_modyfikacji).toLocaleString('local')}</p>
                     </div>
 
                     <div className="detail-item">
@@ -148,13 +155,13 @@ function DetailsTickets() {
                         Go Back
                     </button>
 
-                    <button className="edit-btn">Edytuj</button>
+                    <button className="edit-btn" onClick={showEditModal}>Edytuj</button>
                     <button className="edit-btn" name='close' onClick={showConfirmModal}>Usuń</button>
                 </div>
 
             </div>
-            {isOpen && <ConfirmModal title='Czy na pewno chcesz usunąć zgłoszenie?' message='Usunięcie będzie nieodwracalne!    ' onClick={closeConfirmModal} confirm={deleteTickets} />}
-
+            {isOpen && <ConfirmModal title='Czy na pewno chcesz usunąć zgłoszenie?' message='Usunięcie będzie nieodwracalne!' onClick={closeConfirmModal} confirm={deleteTickets} />}
+            {isOpenEditModal && <EditModal onClick={closeEditModal} />}
         </div>
 
 
